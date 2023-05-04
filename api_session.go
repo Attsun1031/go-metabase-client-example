@@ -25,15 +25,15 @@ type SessionApiService service
 type ApiCreateSessionRequest struct {
 	ctx context.Context
 	ApiService *SessionApiService
-	sessionRequest *SessionRequest
+	sessionCreate *SessionCreate
 }
 
-func (r ApiCreateSessionRequest) SessionRequest(sessionRequest SessionRequest) ApiCreateSessionRequest {
-	r.sessionRequest = &sessionRequest
+func (r ApiCreateSessionRequest) SessionCreate(sessionCreate SessionCreate) ApiCreateSessionRequest {
+	r.sessionCreate = &sessionCreate
 	return r
 }
 
-func (r ApiCreateSessionRequest) Execute() (*SessionResponse, *http.Response, error) {
+func (r ApiCreateSessionRequest) Execute() (*Session, *http.Response, error) {
 	return r.ApiService.CreateSessionExecute(r)
 }
 
@@ -53,13 +53,13 @@ func (a *SessionApiService) CreateSession(ctx context.Context) ApiCreateSessionR
 }
 
 // Execute executes the request
-//  @return SessionResponse
-func (a *SessionApiService) CreateSessionExecute(r ApiCreateSessionRequest) (*SessionResponse, *http.Response, error) {
+//  @return Session
+func (a *SessionApiService) CreateSessionExecute(r ApiCreateSessionRequest) (*Session, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SessionResponse
+		localVarReturnValue  *Session
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SessionApiService.CreateSession")
@@ -72,8 +72,8 @@ func (a *SessionApiService) CreateSessionExecute(r ApiCreateSessionRequest) (*Se
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.sessionRequest == nil {
-		return localVarReturnValue, nil, reportError("sessionRequest is required and must be specified")
+	if r.sessionCreate == nil {
+		return localVarReturnValue, nil, reportError("sessionCreate is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -94,7 +94,7 @@ func (a *SessionApiService) CreateSessionExecute(r ApiCreateSessionRequest) (*Se
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.sessionRequest
+	localVarPostBody = r.sessionCreate
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

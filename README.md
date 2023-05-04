@@ -80,17 +80,19 @@ Class | Method | HTTP request | Description
 *DatabaseApi* | [**CreateDatabase**](docs/DatabaseApi.md#createdatabase) | **Post** /api/database | 
 *DatabaseApi* | [**ListDatabases**](docs/DatabaseApi.md#listdatabases) | **Get** /api/database | List Databases
 *DatasetApi* | [**QueryDatabase**](docs/DatasetApi.md#querydatabase) | **Post** /api/dataset | Execute a query
+*GroupApi* | [**CreateGroup**](docs/GroupApi.md#creategroup) | **Post** /api/group | 
+*GroupApi* | [**ListGroups**](docs/GroupApi.md#listgroups) | **Get** /api/group | 
 *SessionApi* | [**CreateSession**](docs/SessionApi.md#createsession) | **Post** /api/session | Create a new session
 
 
 ## Documentation For Models
 
  - [Database](docs/Database.md)
+ - [DatabaseCreate](docs/DatabaseCreate.md)
+ - [DatabaseCreateDetails](docs/DatabaseCreateDetails.md)
+ - [DatabaseCreateSchedules](docs/DatabaseCreateSchedules.md)
+ - [DatabaseCreateSchedulesMetadataSync](docs/DatabaseCreateSchedulesMetadataSync.md)
  - [DatabaseDetails](docs/DatabaseDetails.md)
- - [DatabaseInput](docs/DatabaseInput.md)
- - [DatabaseInputDetails](docs/DatabaseInputDetails.md)
- - [DatabaseInputSchedules](docs/DatabaseInputSchedules.md)
- - [DatabaseInputSchedulesMetadataSync](docs/DatabaseInputSchedulesMetadataSync.md)
  - [DatabaseTable](docs/DatabaseTable.md)
  - [DatasetQueryConstraints](docs/DatasetQueryConstraints.md)
  - [DatasetQueryDsl](docs/DatasetQueryDsl.md)
@@ -108,9 +110,12 @@ Class | Method | HTTP request | Description
  - [DatasetQueryResultsMetadata](docs/DatasetQueryResultsMetadata.md)
  - [DatasetQueryResultsMetadataColumn](docs/DatasetQueryResultsMetadataColumn.md)
  - [DatasetQueryResultsNativeForm](docs/DatasetQueryResultsNativeForm.md)
+ - [Group](docs/Group.md)
+ - [GroupCreate](docs/GroupCreate.md)
  - [ListDatabases200Response](docs/ListDatabases200Response.md)
- - [SessionRequest](docs/SessionRequest.md)
- - [SessionResponse](docs/SessionResponse.md)
+ - [ListGroups200Response](docs/ListGroups200Response.md)
+ - [Session](docs/Session.md)
+ - [SessionCreate](docs/SessionCreate.md)
 
 
 ## Documentation For Authorization

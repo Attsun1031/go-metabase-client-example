@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## CreateDatabase
 
-> Database CreateDatabase(ctx).DatabaseInput(databaseInput).Execute()
+> Database CreateDatabase(ctx).DatabaseCreate(databaseCreate).Execute()
 
 
 
@@ -30,11 +30,11 @@ import (
 )
 
 func main() {
-    databaseInput := *openapiclient.NewDatabaseInput() // DatabaseInput | 
+    databaseCreate := *openapiclient.NewDatabaseCreate() // DatabaseCreate | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DatabaseApi.CreateDatabase(context.Background()).DatabaseInput(databaseInput).Execute()
+    resp, r, err := apiClient.DatabaseApi.CreateDatabase(context.Background()).DatabaseCreate(databaseCreate).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DatabaseApi.CreateDatabase``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -55,7 +55,7 @@ Other parameters are passed through a pointer to a apiCreateDatabaseRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **databaseInput** | [**DatabaseInput**](DatabaseInput.md) |  | 
+ **databaseCreate** | [**DatabaseCreate**](DatabaseCreate.md) |  | 
 
 ### Return type
 

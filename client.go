@@ -53,6 +53,8 @@ type APIClient struct {
 
 	DatasetApi *DatasetApiService
 
+	GroupApi *GroupApiService
+
 	SessionApi *SessionApiService
 }
 
@@ -74,6 +76,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.DatabaseApi = (*DatabaseApiService)(&c.common)
 	c.DatasetApi = (*DatasetApiService)(&c.common)
+	c.GroupApi = (*GroupApiService)(&c.common)
 	c.SessionApi = (*SessionApiService)(&c.common)
 
 	return c
