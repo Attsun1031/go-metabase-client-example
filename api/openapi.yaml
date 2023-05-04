@@ -18,18 +18,53 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SessionRequest'
+              $ref: '#/components/schemas/SessionCreate'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SessionResponse'
+                $ref: '#/components/schemas/Session'
           description: successful operation
       summary: Create a new session
       tags:
       - session
+  /api/group:
+    get:
+      description: Fetch all Groups.
+      operationId: listGroups
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listGroups_200_response'
+          description: successful operation
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - group
+    post:
+      description: Create a new Group.
+      operationId: createGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupCreate'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+          description: successful operation
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - group
   /api/database:
     get:
       description: "Fetch all Databases. include_tables means we should hydrate the\
@@ -77,7 +112,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DatabaseInput'
+              $ref: '#/components/schemas/DatabaseCreate'
         required: true
       responses:
         "200":
@@ -114,7 +149,7 @@ paths:
       - dataset
 components:
   schemas:
-    SessionRequest:
+    SessionCreate:
       example:
         password: password
         username: username
@@ -126,13 +161,29 @@ components:
       required:
       - password
       - username
-    SessionResponse:
+    Session:
       example:
         id: id
       properties:
         id:
           type: string
-    DatabaseInput:
+    GroupCreate:
+      example:
+        name: Admin
+      properties:
+        name:
+          example: Admin
+          type: string
+      required:
+      - name
+    Group:
+      example:
+        name: Admin
+      properties:
+        name:
+          example: Admin
+          type: string
+    DatabaseCreate:
       example:
         auto_run_queries: true
         is_full_sync: false
@@ -173,9 +224,9 @@ components:
           example: true
           type: boolean
         schedules:
-          $ref: '#/components/schemas/DatabaseInput_schedules'
+          $ref: '#/components/schemas/DatabaseCreate_schedules'
         details:
-          $ref: '#/components/schemas/DatabaseInput_details'
+          $ref: '#/components/schemas/DatabaseCreate_details'
     DatabaseDetails:
       example:
         connProperties: connProperties
@@ -874,6 +925,16 @@ components:
         special_type:
           type: string
       type: object
+    listGroups_200_response:
+      example:
+        data:
+        - name: Admin
+        - name: Admin
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/Group'
+          type: array
     listDatabases_200_response:
       example:
         data:
@@ -1002,7 +1063,7 @@ components:
           items:
             $ref: '#/components/schemas/Database'
           type: array
-    DatabaseInput_schedules_metadata_sync:
+    DatabaseCreate_schedules_metadata_sync:
       example:
         schedule_type: daily
       properties:
@@ -1010,15 +1071,15 @@ components:
           example: daily
           type: string
       type: object
-    DatabaseInput_schedules:
+    DatabaseCreate_schedules:
       example:
         metadata_sync:
           schedule_type: daily
       properties:
         metadata_sync:
-          $ref: '#/components/schemas/DatabaseInput_schedules_metadata_sync'
+          $ref: '#/components/schemas/DatabaseCreate_schedules_metadata_sync'
       type: object
-    DatabaseInput_details:
+    DatabaseCreate_details:
       example:
         let-user-control-scheduling: true
         advanced-options: true

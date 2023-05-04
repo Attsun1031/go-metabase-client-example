@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## CreateSession
 
-> SessionResponse CreateSession(ctx).SessionRequest(sessionRequest).Execute()
+> Session CreateSession(ctx).SessionCreate(sessionCreate).Execute()
 
 Create a new session
 
@@ -29,16 +29,16 @@ import (
 )
 
 func main() {
-    sessionRequest := *openapiclient.NewSessionRequest("Username_example", "Password_example") // SessionRequest | 
+    sessionCreate := *openapiclient.NewSessionCreate("Username_example", "Password_example") // SessionCreate | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SessionApi.CreateSession(context.Background()).SessionRequest(sessionRequest).Execute()
+    resp, r, err := apiClient.SessionApi.CreateSession(context.Background()).SessionCreate(sessionCreate).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SessionApi.CreateSession``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateSession`: SessionResponse
+    // response from `CreateSession`: Session
     fmt.Fprintf(os.Stdout, "Response from `SessionApi.CreateSession`: %v\n", resp)
 }
 ```
@@ -54,11 +54,11 @@ Other parameters are passed through a pointer to a apiCreateSessionRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sessionRequest** | [**SessionRequest**](SessionRequest.md) |  | 
+ **sessionCreate** | [**SessionCreate**](SessionCreate.md) |  | 
 
 ### Return type
 
-[**SessionResponse**](SessionResponse.md)
+[**Session**](Session.md)
 
 ### Authorization
 

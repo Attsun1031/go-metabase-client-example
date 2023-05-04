@@ -19,61 +19,61 @@ import (
 )
 
 
-// DatabaseApiService DatabaseApi service
-type DatabaseApiService service
+// GroupApiService GroupApi service
+type GroupApiService service
 
-type ApiCreateDatabaseRequest struct {
+type ApiCreateGroupRequest struct {
 	ctx context.Context
-	ApiService *DatabaseApiService
-	databaseCreate *DatabaseCreate
+	ApiService *GroupApiService
+	groupCreate *GroupCreate
 }
 
-func (r ApiCreateDatabaseRequest) DatabaseCreate(databaseCreate DatabaseCreate) ApiCreateDatabaseRequest {
-	r.databaseCreate = &databaseCreate
+func (r ApiCreateGroupRequest) GroupCreate(groupCreate GroupCreate) ApiCreateGroupRequest {
+	r.groupCreate = &groupCreate
 	return r
 }
 
-func (r ApiCreateDatabaseRequest) Execute() (*Database, *http.Response, error) {
-	return r.ApiService.CreateDatabaseExecute(r)
+func (r ApiCreateGroupRequest) Execute() (*Group, *http.Response, error) {
+	return r.ApiService.CreateGroupExecute(r)
 }
 
 /*
-CreateDatabase Method for CreateDatabase
+CreateGroup Method for CreateGroup
 
-Create a new Database.
+Create a new Group.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateDatabaseRequest
+ @return ApiCreateGroupRequest
 */
-func (a *DatabaseApiService) CreateDatabase(ctx context.Context) ApiCreateDatabaseRequest {
-	return ApiCreateDatabaseRequest{
+func (a *GroupApiService) CreateGroup(ctx context.Context) ApiCreateGroupRequest {
+	return ApiCreateGroupRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Database
-func (a *DatabaseApiService) CreateDatabaseExecute(r ApiCreateDatabaseRequest) (*Database, *http.Response, error) {
+//  @return Group
+func (a *GroupApiService) CreateGroupExecute(r ApiCreateGroupRequest) (*Group, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *Database
+		localVarReturnValue  *Group
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabaseApiService.CreateDatabase")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupApiService.CreateGroup")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/database"
+	localVarPath := localBasePath + "/api/group"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.databaseCreate == nil {
-		return localVarReturnValue, nil, reportError("databaseCreate is required and must be specified")
+	if r.groupCreate == nil {
+		return localVarReturnValue, nil, reportError("groupCreate is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -94,7 +94,7 @@ func (a *DatabaseApiService) CreateDatabaseExecute(r ApiCreateDatabaseRequest) (
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.databaseCreate
+	localVarPostBody = r.groupCreate
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -146,71 +146,51 @@ func (a *DatabaseApiService) CreateDatabaseExecute(r ApiCreateDatabaseRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListDatabasesRequest struct {
+type ApiListGroupsRequest struct {
 	ctx context.Context
-	ApiService *DatabaseApiService
-	includeTables *bool
-	includeCards *bool
+	ApiService *GroupApiService
 }
 
-// value may be nil, or if non-nil, value must be a valid boolean string (&#39;true&#39; or &#39;false&#39;).
-func (r ApiListDatabasesRequest) IncludeTables(includeTables bool) ApiListDatabasesRequest {
-	r.includeTables = &includeTables
-	return r
-}
-
-// value may be nil, or if non-nil, value must be a valid boolean string (&#39;true&#39; or &#39;false&#39;).
-func (r ApiListDatabasesRequest) IncludeCards(includeCards bool) ApiListDatabasesRequest {
-	r.includeCards = &includeCards
-	return r
-}
-
-func (r ApiListDatabasesRequest) Execute() (*ListDatabases200Response, *http.Response, error) {
-	return r.ApiService.ListDatabasesExecute(r)
+func (r ApiListGroupsRequest) Execute() (*ListGroups200Response, *http.Response, error) {
+	return r.ApiService.ListGroupsExecute(r)
 }
 
 /*
-ListDatabases List Databases
+ListGroups Method for ListGroups
 
-Fetch all Databases. include_tables means we should hydrate the Tables belonging to each DB. include_cards here means we should also include virtual Table entries for saved Questions, e.g. so we can easily use them as source Tables in queries. Default for both is false.
+Fetch all Groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListDatabasesRequest
+ @return ApiListGroupsRequest
 */
-func (a *DatabaseApiService) ListDatabases(ctx context.Context) ApiListDatabasesRequest {
-	return ApiListDatabasesRequest{
+func (a *GroupApiService) ListGroups(ctx context.Context) ApiListGroupsRequest {
+	return ApiListGroupsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ListDatabases200Response
-func (a *DatabaseApiService) ListDatabasesExecute(r ApiListDatabasesRequest) (*ListDatabases200Response, *http.Response, error) {
+//  @return ListGroups200Response
+func (a *GroupApiService) ListGroupsExecute(r ApiListGroupsRequest) (*ListGroups200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ListDatabases200Response
+		localVarReturnValue  *ListGroups200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabaseApiService.ListDatabases")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupApiService.ListGroups")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/database"
+	localVarPath := localBasePath + "/api/group"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.includeTables != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "include_tables", r.includeTables, "")
-	}
-	if r.includeCards != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "include_cards", r.includeCards, "")
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
