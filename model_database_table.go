@@ -23,24 +23,24 @@ type DatabaseTable struct {
 	Description *string `json:"description,omitempty"`
 	// unknown type
 	EntityType *string `json:"entity_type,omitempty"`
-	Schema *string `json:"schema,omitempty"`
+	Schema     *string `json:"schema,omitempty"`
 	// unknown type
-	RawTableId *string `json:"raw_table_id,omitempty"`
-	ShowInGettingStarted *bool `json:"show_in_getting_started,omitempty"`
-	Name *string `json:"name,omitempty"`
+	RawTableId           *string `json:"raw_table_id,omitempty"`
+	ShowInGettingStarted *bool   `json:"show_in_getting_started,omitempty"`
+	Name                 *string `json:"name,omitempty"`
 	// unknown type
-	Caveats *string `json:"caveats,omitempty"`
-	Rows *int64 `json:"rows,omitempty"`
+	Caveats   *string    `json:"caveats,omitempty"`
+	Rows      *int64     `json:"rows,omitempty"`
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	// unknown type
 	EntityName *string `json:"entity_name,omitempty"`
-	Active *bool `json:"active,omitempty"`
-	Id *int64 `json:"id,omitempty"`
-	DbId *int64 `json:"db_id,omitempty"`
+	Active     *bool   `json:"active,omitempty"`
+	Id         *int64  `json:"id,omitempty"`
+	DbId       *int64  `json:"db_id,omitempty"`
 	// unknown type
-	VisibilityType *string `json:"visibility_type,omitempty"`
-	DisplayName *string `json:"display_name,omitempty"`
-	CreatedAt *time.Time `json:"created_at,omitempty"`
+	VisibilityType *string    `json:"visibility_type,omitempty"`
+	DisplayName    *string    `json:"display_name,omitempty"`
+	CreatedAt      *time.Time `json:"created_at,omitempty"`
 	// unknown type
 	PointsOfInterest *string `json:"points_of_interest,omitempty"`
 }
@@ -607,7 +607,7 @@ func (o *DatabaseTable) SetPointsOfInterest(v string) {
 }
 
 func (o DatabaseTable) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -705,5 +705,3 @@ func (v *NullableDatabaseTable) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

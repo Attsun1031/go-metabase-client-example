@@ -19,7 +19,7 @@ var _ MappedNullable = &DatasetQueryDslPage{}
 
 // DatasetQueryDslPage struct for DatasetQueryDslPage
 type DatasetQueryDslPage struct {
-	Page *int64 `json:"page,omitempty"`
+	Page  *int64 `json:"page,omitempty"`
 	Items *int64 `json:"items,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *DatasetQueryDslPage) SetItems(v int64) {
 }
 
 func (o DatasetQueryDslPage) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableDatasetQueryDslPage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,8 +19,8 @@ var _ MappedNullable = &Group{}
 
 // Group struct for Group
 type Group struct {
-	Id *float32 `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Id   *float32 `json:"id,omitempty"`
+	Name *string  `json:"name,omitempty"`
 }
 
 // NewGroup instantiates a new Group object
@@ -105,7 +105,7 @@ func (o *Group) SetName(v string) {
 }
 
 func (o Group) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableGroup) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,9 +19,9 @@ var _ MappedNullable = &DatasetQueryResultsMetadataColumn{}
 
 // DatasetQueryResultsMetadataColumn struct for DatasetQueryResultsMetadataColumn
 type DatasetQueryResultsMetadataColumn struct {
-	BaseType *string `json:"base_type,omitempty"`
+	BaseType    *string `json:"base_type,omitempty"`
 	DisplayName *string `json:"display_name,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Name        *string `json:"name,omitempty"`
 	SpecialType *string `json:"special_type,omitempty"`
 }
 
@@ -171,7 +171,7 @@ func (o *DatasetQueryResultsMetadataColumn) SetSpecialType(v string) {
 }
 
 func (o DatasetQueryResultsMetadataColumn) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,5 +230,3 @@ func (v *NullableDatasetQueryResultsMetadataColumn) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -18,13 +18,12 @@ import (
 	"net/url"
 )
 
-
 // DatabaseApiService DatabaseApi service
 type DatabaseApiService service
 
 type ApiCreateDatabaseRequest struct {
-	ctx context.Context
-	ApiService *DatabaseApiService
+	ctx            context.Context
+	ApiService     *DatabaseApiService
 	databaseCreate *DatabaseCreate
 }
 
@@ -42,24 +41,25 @@ CreateDatabase Method for CreateDatabase
 
 Create a new Database.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateDatabaseRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateDatabaseRequest
 */
 func (a *DatabaseApiService) CreateDatabase(ctx context.Context) ApiCreateDatabaseRequest {
 	return ApiCreateDatabaseRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Database
+//
+//	@return Database
 func (a *DatabaseApiService) CreateDatabaseExecute(r ApiCreateDatabaseRequest) (*Database, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Database
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Database
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabaseApiService.CreateDatabase")
@@ -147,10 +147,10 @@ func (a *DatabaseApiService) CreateDatabaseExecute(r ApiCreateDatabaseRequest) (
 }
 
 type ApiListDatabasesRequest struct {
-	ctx context.Context
-	ApiService *DatabaseApiService
+	ctx           context.Context
+	ApiService    *DatabaseApiService
 	includeTables *bool
-	includeCards *bool
+	includeCards  *bool
 }
 
 // value may be nil, or if non-nil, value must be a valid boolean string (&#39;true&#39; or &#39;false&#39;).
@@ -174,24 +174,25 @@ ListDatabases List Databases
 
 Fetch all Databases. include_tables means we should hydrate the Tables belonging to each DB. include_cards here means we should also include virtual Table entries for saved Questions, e.g. so we can easily use them as source Tables in queries. Default for both is false.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListDatabasesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiListDatabasesRequest
 */
 func (a *DatabaseApiService) ListDatabases(ctx context.Context) ApiListDatabasesRequest {
 	return ApiListDatabasesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ListDatabases200Response
+//
+//	@return ListDatabases200Response
 func (a *DatabaseApiService) ListDatabasesExecute(r ApiListDatabasesRequest) (*ListDatabases200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ListDatabases200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ListDatabases200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabaseApiService.ListDatabases")

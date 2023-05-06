@@ -106,7 +106,7 @@ func (o *DatasetQueryResultsColFingerprint) SetType(v map[string]interface{}) {
 }
 
 func (o DatasetQueryResultsColFingerprint) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullableDatasetQueryResultsColFingerprint) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

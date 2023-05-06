@@ -19,10 +19,10 @@ var _ MappedNullable = &DatasetQueryJsonQuery{}
 
 // DatasetQueryJsonQuery struct for DatasetQueryJsonQuery
 type DatasetQueryJsonQuery struct {
-	Database *int64 `json:"database,omitempty"`
-	Type *string `json:"type,omitempty"`
-	Native *DatasetQueryNative `json:"native,omitempty"`
-	Query *DatasetQueryDsl `json:"query,omitempty"`
+	Database    *int64                   `json:"database,omitempty"`
+	Type        *string                  `json:"type,omitempty"`
+	Native      *DatasetQueryNative      `json:"native,omitempty"`
+	Query       *DatasetQueryDsl         `json:"query,omitempty"`
 	Constraints *DatasetQueryConstraints `json:"constraints,omitempty"`
 }
 
@@ -204,7 +204,7 @@ func (o *DatasetQueryJsonQuery) SetConstraints(v DatasetQueryConstraints) {
 }
 
 func (o DatasetQueryJsonQuery) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -266,5 +266,3 @@ func (v *NullableDatasetQueryJsonQuery) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

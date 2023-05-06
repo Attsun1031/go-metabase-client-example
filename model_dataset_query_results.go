@@ -20,15 +20,15 @@ var _ MappedNullable = &DatasetQueryResults{}
 
 // DatasetQueryResults struct for DatasetQueryResults
 type DatasetQueryResults struct {
-	StartedAt *time.Time `json:"started_at,omitempty"`
+	StartedAt *time.Time             `json:"started_at,omitempty"`
 	JsonQuery *DatasetQueryJsonQuery `json:"json_query,omitempty"`
 	// type unknown
-	AverageExecutionTime *string `json:"average_execution_time,omitempty"`
-	Status *string `json:"status,omitempty"`
-	Context *string `json:"context,omitempty"`
-	RowCount *int64 `json:"row_count,omitempty"`
-	RunningTime *int64 `json:"running_time,omitempty"`
-	Data *DatasetQueryResultsData `json:"data,omitempty"`
+	AverageExecutionTime *string                  `json:"average_execution_time,omitempty"`
+	Status               *string                  `json:"status,omitempty"`
+	Context              *string                  `json:"context,omitempty"`
+	RowCount             *int64                   `json:"row_count,omitempty"`
+	RunningTime          *int64                   `json:"running_time,omitempty"`
+	Data                 *DatasetQueryResultsData `json:"data,omitempty"`
 }
 
 // NewDatasetQueryResults instantiates a new DatasetQueryResults object
@@ -305,7 +305,7 @@ func (o *DatasetQueryResults) SetData(v DatasetQueryResultsData) {
 }
 
 func (o DatasetQueryResults) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -376,5 +376,3 @@ func (v *NullableDatasetQueryResults) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

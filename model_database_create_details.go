@@ -19,15 +19,15 @@ var _ MappedNullable = &DatabaseCreateDetails{}
 
 // DatabaseCreateDetails struct for DatabaseCreateDetails
 type DatabaseCreateDetails struct {
-	ProjectId *string `json:"project-id,omitempty"`
-	ServiceAccountJson *string `json:"service-account-json,omitempty"`
-	DatasetFiltersType *string `json:"dataset-filters-type,omitempty"`
-	AdvancedOptions *bool `json:"advanced-options,omitempty"`
-	UseJvmTimezone *bool `json:"use-jvm-timezone,omitempty"`
-	IncludeUserIdAndHash *bool `json:"include-user-id-and-hash,omitempty"`
-	LetUserControlScheduling *bool `json:"let-user-control-scheduling,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Engine *string `json:"engine,omitempty"`
+	ProjectId                *string `json:"project-id,omitempty"`
+	ServiceAccountJson       *string `json:"service-account-json,omitempty"`
+	DatasetFiltersType       *string `json:"dataset-filters-type,omitempty"`
+	AdvancedOptions          *bool   `json:"advanced-options,omitempty"`
+	UseJvmTimezone           *bool   `json:"use-jvm-timezone,omitempty"`
+	IncludeUserIdAndHash     *bool   `json:"include-user-id-and-hash,omitempty"`
+	LetUserControlScheduling *bool   `json:"let-user-control-scheduling,omitempty"`
+	Name                     *string `json:"name,omitempty"`
+	Engine                   *string `json:"engine,omitempty"`
 }
 
 // NewDatabaseCreateDetails instantiates a new DatabaseCreateDetails object
@@ -336,7 +336,7 @@ func (o *DatabaseCreateDetails) SetEngine(v string) {
 }
 
 func (o DatabaseCreateDetails) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -410,5 +410,3 @@ func (v *NullableDatabaseCreateDetails) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,14 +19,14 @@ var _ MappedNullable = &DatabaseCreate{}
 
 // DatabaseCreate struct for DatabaseCreate
 type DatabaseCreate struct {
-	IsOnDemand *bool `json:"is_on_demand,omitempty"`
-	IsFullSync *bool `json:"is_full_sync,omitempty"`
-	IsSample *bool `json:"is_sample,omitempty"`
-	CacheTtl *string `json:"cache_ttl,omitempty"`
-	Refingerprint *bool `json:"refingerprint,omitempty"`
-	AutoRunQueries *bool `json:"auto_run_queries,omitempty"`
-	Schedules *DatabaseCreateSchedules `json:"schedules,omitempty"`
-	Details *DatabaseCreateDetails `json:"details,omitempty"`
+	IsOnDemand     *bool                    `json:"is_on_demand,omitempty"`
+	IsFullSync     *bool                    `json:"is_full_sync,omitempty"`
+	IsSample       *bool                    `json:"is_sample,omitempty"`
+	CacheTtl       *string                  `json:"cache_ttl,omitempty"`
+	Refingerprint  *bool                    `json:"refingerprint,omitempty"`
+	AutoRunQueries *bool                    `json:"auto_run_queries,omitempty"`
+	Schedules      *DatabaseCreateSchedules `json:"schedules,omitempty"`
+	Details        *DatabaseCreateDetails   `json:"details,omitempty"`
 }
 
 // NewDatabaseCreate instantiates a new DatabaseCreate object
@@ -303,7 +303,7 @@ func (o *DatabaseCreate) SetDetails(v DatabaseCreateDetails) {
 }
 
 func (o DatabaseCreate) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -374,5 +374,3 @@ func (v *NullableDatabaseCreate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
