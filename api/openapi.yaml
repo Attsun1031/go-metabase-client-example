@@ -39,7 +39,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/listGroups_200_response'
+                items:
+                  $ref: '#/components/schemas/Group'
+                type: array
           description: successful operation
       security:
       - ApiKeyAuth: []
@@ -933,20 +935,6 @@ components:
         special_type:
           type: string
       type: object
-    listGroups_200_response:
-      example:
-        data:
-        - name: Admin
-          id: 1
-          member_count: 1
-        - name: Admin
-          id: 1
-          member_count: 1
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/Group'
-          type: array
     listDatabases_200_response:
       example:
         data:
