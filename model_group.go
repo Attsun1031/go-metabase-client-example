@@ -19,6 +19,7 @@ var _ MappedNullable = &Group{}
 
 // Group struct for Group
 type Group struct {
+	Id *float32 `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 }
 
@@ -37,6 +38,38 @@ func NewGroup() *Group {
 func NewGroupWithDefaults() *Group {
 	this := Group{}
 	return &this
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *Group) GetId() float32 {
+	if o == nil || IsNil(o.Id) {
+		var ret float32
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Group) GetIdOk() (*float32, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *Group) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given float32 and assigns it to the Id field.
+func (o *Group) SetId(v float32) {
+	o.Id = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -81,6 +114,9 @@ func (o Group) MarshalJSON() ([]byte, error) {
 
 func (o Group) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}

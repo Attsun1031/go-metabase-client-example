@@ -19,14 +19,14 @@ var _ MappedNullable = &DatabaseInput{}
 
 // DatabaseInput struct for DatabaseInput
 type DatabaseInput struct {
-	IsOnDemand *bool `json:"is_on_demand,omitempty"`
-	IsFullSync *bool `json:"is_full_sync,omitempty"`
-	IsSample *bool `json:"is_sample,omitempty"`
-	CacheTtl *string `json:"cache_ttl,omitempty"`
-	Refingerprint *bool `json:"refingerprint,omitempty"`
-	AutoRunQueries *bool `json:"auto_run_queries,omitempty"`
-	Schedules *DatabaseInputSchedules `json:"schedules,omitempty"`
-	Details *DatabaseInputDetails `json:"details,omitempty"`
+	IsOnDemand     *bool                   `json:"is_on_demand,omitempty"`
+	IsFullSync     *bool                   `json:"is_full_sync,omitempty"`
+	IsSample       *bool                   `json:"is_sample,omitempty"`
+	CacheTtl       *string                 `json:"cache_ttl,omitempty"`
+	Refingerprint  *bool                   `json:"refingerprint,omitempty"`
+	AutoRunQueries *bool                   `json:"auto_run_queries,omitempty"`
+	Schedules      *DatabaseInputSchedules `json:"schedules,omitempty"`
+	Details        *DatabaseInputDetails   `json:"details,omitempty"`
 }
 
 // NewDatabaseInput instantiates a new DatabaseInput object
@@ -303,7 +303,7 @@ func (o *DatabaseInput) SetDetails(v DatabaseInputDetails) {
 }
 
 func (o DatabaseInput) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -374,5 +374,3 @@ func (v *NullableDatabaseInput) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

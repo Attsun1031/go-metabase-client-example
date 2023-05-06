@@ -19,15 +19,15 @@ var _ MappedNullable = &DatabaseInputDetails{}
 
 // DatabaseInputDetails struct for DatabaseInputDetails
 type DatabaseInputDetails struct {
-	ProjectId *string `json:"project-id,omitempty"`
-	ServiceAccountJson *string `json:"service-account-json,omitempty"`
-	DatasetFiltersType *string `json:"dataset-filters-type,omitempty"`
-	AdvancedOptions *bool `json:"advanced-options,omitempty"`
-	UseJvmTimezone *bool `json:"use-jvm-timezone,omitempty"`
-	IncludeUserIdAndHash *bool `json:"include-user-id-and-hash,omitempty"`
-	LetUserControlScheduling *bool `json:"let-user-control-scheduling,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Engine *string `json:"engine,omitempty"`
+	ProjectId                *string `json:"project-id,omitempty"`
+	ServiceAccountJson       *string `json:"service-account-json,omitempty"`
+	DatasetFiltersType       *string `json:"dataset-filters-type,omitempty"`
+	AdvancedOptions          *bool   `json:"advanced-options,omitempty"`
+	UseJvmTimezone           *bool   `json:"use-jvm-timezone,omitempty"`
+	IncludeUserIdAndHash     *bool   `json:"include-user-id-and-hash,omitempty"`
+	LetUserControlScheduling *bool   `json:"let-user-control-scheduling,omitempty"`
+	Name                     *string `json:"name,omitempty"`
+	Engine                   *string `json:"engine,omitempty"`
 }
 
 // NewDatabaseInputDetails instantiates a new DatabaseInputDetails object
@@ -336,7 +336,7 @@ func (o *DatabaseInputDetails) SetEngine(v string) {
 }
 
 func (o DatabaseInputDetails) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -410,5 +410,3 @@ func (v *NullableDatabaseInputDetails) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
