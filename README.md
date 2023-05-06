@@ -113,7 +113,6 @@ Class | Method | HTTP request | Description
  - [Group](docs/Group.md)
  - [GroupCreate](docs/GroupCreate.md)
  - [ListDatabases200Response](docs/ListDatabases200Response.md)
- - [ListGroups200Response](docs/ListGroups200Response.md)
  - [Session](docs/Session.md)
  - [SessionCreate](docs/SessionCreate.md)
 

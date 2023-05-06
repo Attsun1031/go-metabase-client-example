@@ -43,11 +43,9 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  data:
-                    items:
-                      $ref: '#/components/schemas/Group'
-                    type: array
+                items:
+                  $ref: '#/components/schemas/Group'
+                type: array
           description: successful operation
     post:
       description: Create a new Group.

@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ## ListGroups
 
-> ListGroups200Response ListGroups(ctx).Execute()
+> []Group ListGroups(ctx).Execute()
 
 
 
@@ -104,7 +104,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.ListGroups``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListGroups`: ListGroups200Response
+    // response from `ListGroups`: []Group
     fmt.Fprintf(os.Stdout, "Response from `GroupApi.ListGroups`: %v\n", resp)
 }
 ```
@@ -120,7 +120,7 @@ Other parameters are passed through a pointer to a apiListGroupsRequest struct v
 
 ### Return type
 
-[**ListGroups200Response**](ListGroups200Response.md)
+[**[]Group**](Group.md)
 
 ### Authorization
 

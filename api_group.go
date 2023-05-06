@@ -151,7 +151,7 @@ type ApiListGroupsRequest struct {
 	ApiService *GroupApiService
 }
 
-func (r ApiListGroupsRequest) Execute() (*ListGroups200Response, *http.Response, error) {
+func (r ApiListGroupsRequest) Execute() ([]Group, *http.Response, error) {
 	return r.ApiService.ListGroupsExecute(r)
 }
 
@@ -172,13 +172,13 @@ func (a *GroupApiService) ListGroups(ctx context.Context) ApiListGroupsRequest {
 
 // Execute executes the request
 //
-//	@return ListGroups200Response
-func (a *GroupApiService) ListGroupsExecute(r ApiListGroupsRequest) (*ListGroups200Response, *http.Response, error) {
+//	@return []Group
+func (a *GroupApiService) ListGroupsExecute(r ApiListGroupsRequest) ([]Group, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodGet
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *ListGroups200Response
+		localVarReturnValue []Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupApiService.ListGroups")
