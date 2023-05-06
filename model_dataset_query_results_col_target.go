@@ -19,13 +19,13 @@ var _ MappedNullable = &DatasetQueryResultsColTarget{}
 
 // DatasetQueryResultsColTarget struct for DatasetQueryResultsColTarget
 type DatasetQueryResultsColTarget struct {
-	Id *int64 `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
-	DisplayName *string `json:"display_name,omitempty"`
-	TableId *int64 `json:"table_id,omitempty"`
-	Description *string `json:"description,omitempty"`
-	BaseType *string `json:"base_type,omitempty"`
-	SpecialType *string `json:"special_type,omitempty"`
+	Id             *int64  `json:"id,omitempty"`
+	Name           *string `json:"name,omitempty"`
+	DisplayName    *string `json:"display_name,omitempty"`
+	TableId        *int64  `json:"table_id,omitempty"`
+	Description    *string `json:"description,omitempty"`
+	BaseType       *string `json:"base_type,omitempty"`
+	SpecialType    *string `json:"special_type,omitempty"`
 	VisibilityType *string `json:"visibility_type,omitempty"`
 }
 
@@ -303,7 +303,7 @@ func (o *DatasetQueryResultsColTarget) SetVisibilityType(v string) {
 }
 
 func (o DatasetQueryResultsColTarget) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -374,5 +374,3 @@ func (v *NullableDatasetQueryResultsColTarget) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

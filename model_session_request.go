@@ -91,7 +91,7 @@ func (o *SessionRequest) SetPassword(v string) {
 }
 
 func (o SessionRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableSessionRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

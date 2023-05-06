@@ -18,13 +18,12 @@ import (
 	"net/url"
 )
 
-
 // GroupApiService GroupApi service
 type GroupApiService service
 
 type ApiCreateGroupRequest struct {
-	ctx context.Context
-	ApiService *GroupApiService
+	ctx         context.Context
+	ApiService  *GroupApiService
 	groupCreate *GroupCreate
 }
 
@@ -42,24 +41,25 @@ CreateGroup Method for CreateGroup
 
 Create a new Group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateGroupRequest
 */
 func (a *GroupApiService) CreateGroup(ctx context.Context) ApiCreateGroupRequest {
 	return ApiCreateGroupRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Group
+//
+//	@return Group
 func (a *GroupApiService) CreateGroupExecute(r ApiCreateGroupRequest) (*Group, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Group
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Group
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupApiService.CreateGroup")
@@ -147,7 +147,7 @@ func (a *GroupApiService) CreateGroupExecute(r ApiCreateGroupRequest) (*Group, *
 }
 
 type ApiListGroupsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *GroupApiService
 }
 
@@ -160,24 +160,25 @@ ListGroups Method for ListGroups
 
 Fetch all Groups.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiListGroupsRequest
 */
 func (a *GroupApiService) ListGroups(ctx context.Context) ApiListGroupsRequest {
 	return ApiListGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ListGroups200Response
+//
+//	@return ListGroups200Response
 func (a *GroupApiService) ListGroupsExecute(r ApiListGroupsRequest) (*ListGroups200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ListGroups200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ListGroups200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupApiService.ListGroups")

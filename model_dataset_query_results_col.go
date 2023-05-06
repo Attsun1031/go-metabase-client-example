@@ -20,11 +20,11 @@ var _ MappedNullable = &DatasetQueryResultsCol{}
 // DatasetQueryResultsCol struct for DatasetQueryResultsCol
 type DatasetQueryResultsCol struct {
 	Description *string `json:"description,omitempty"`
-	TableId *int64 `json:"table_id,omitempty"`
-	SchemaName *string `json:"schema_name,omitempty"`
+	TableId     *int64  `json:"table_id,omitempty"`
+	SchemaName  *string `json:"schema_name,omitempty"`
 	SpecialType *string `json:"special_type,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Source *string `json:"source,omitempty"`
+	Name        *string `json:"name,omitempty"`
+	Source      *string `json:"source,omitempty"`
 	// unknown type
 	RemappedFrom *string `json:"remapped_from,omitempty"`
 	// can be '{\"target_table_id\":517}'
@@ -32,13 +32,13 @@ type DatasetQueryResultsCol struct {
 	// unknown type
 	FkFieldId *string `json:"fk_field_id,omitempty"`
 	// unknown type
-	RemappedTo *string `json:"remapped_to,omitempty"`
-	Id *int64 `json:"id,omitempty"`
-	VisibilityType *string `json:"visibility_type,omitempty"`
-	Target *DatasetQueryResultsColTarget `json:"target,omitempty"`
-	DisplayName *string `json:"display_name,omitempty"`
-	Fingerprint *DatasetQueryResultsColFingerprint `json:"fingerprint,omitempty"`
-	BaseType *string `json:"base_type,omitempty"`
+	RemappedTo     *string                            `json:"remapped_to,omitempty"`
+	Id             *int64                             `json:"id,omitempty"`
+	VisibilityType *string                            `json:"visibility_type,omitempty"`
+	Target         *DatasetQueryResultsColTarget      `json:"target,omitempty"`
+	DisplayName    *string                            `json:"display_name,omitempty"`
+	Fingerprint    *DatasetQueryResultsColFingerprint `json:"fingerprint,omitempty"`
+	BaseType       *string                            `json:"base_type,omitempty"`
 }
 
 // NewDatasetQueryResultsCol instantiates a new DatasetQueryResultsCol object
@@ -571,7 +571,7 @@ func (o *DatasetQueryResultsCol) SetBaseType(v string) {
 }
 
 func (o DatasetQueryResultsCol) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -666,5 +666,3 @@ func (v *NullableDatasetQueryResultsCol) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,14 +19,14 @@ var _ MappedNullable = &DatabaseDetails{}
 
 // DatabaseDetails struct for DatabaseDetails
 type DatabaseDetails struct {
-	Host *string `json:"host,omitempty"`
-	Port *int32 `json:"port,omitempty"`
-	Dbname *string `json:"dbname,omitempty"`
-	AuthMech *int32 `json:"authMech,omitempty"`
-	User *string `json:"user,omitempty"`
-	Password *string `json:"password,omitempty"`
-	ConnProperties *string `json:"connProperties,omitempty"`
-	LetUserControlScheduling *bool `json:"let-user-control-scheduling,omitempty"`
+	Host                     *string `json:"host,omitempty"`
+	Port                     *int32  `json:"port,omitempty"`
+	Dbname                   *string `json:"dbname,omitempty"`
+	AuthMech                 *int32  `json:"authMech,omitempty"`
+	User                     *string `json:"user,omitempty"`
+	Password                 *string `json:"password,omitempty"`
+	ConnProperties           *string `json:"connProperties,omitempty"`
+	LetUserControlScheduling *bool   `json:"let-user-control-scheduling,omitempty"`
 }
 
 // NewDatabaseDetails instantiates a new DatabaseDetails object
@@ -303,7 +303,7 @@ func (o *DatabaseDetails) SetLetUserControlScheduling(v bool) {
 }
 
 func (o DatabaseDetails) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -374,5 +374,3 @@ func (v *NullableDatabaseDetails) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

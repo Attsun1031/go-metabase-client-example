@@ -74,5 +74,4 @@ model_list_groups_200_response.go
 model_session.go
 model_session_create.go
 response.go
-test/api_group_test.go
 utils.go

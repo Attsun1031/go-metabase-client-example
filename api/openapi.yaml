@@ -179,7 +179,11 @@ components:
     Group:
       example:
         name: Admin
+        id: 1
       properties:
+        id:
+          example: 1
+          type: number
         name:
           example: Admin
           type: string
@@ -929,7 +933,9 @@ components:
       example:
         data:
         - name: Admin
+          id: 1
         - name: Admin
+          id: 1
       properties:
         data:
           items:

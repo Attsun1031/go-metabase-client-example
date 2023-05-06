@@ -18,13 +18,12 @@ import (
 	"net/url"
 )
 
-
 // DatasetApiService DatasetApi service
 type DatasetApiService service
 
 type ApiQueryDatabaseRequest struct {
-	ctx context.Context
-	ApiService *DatasetApiService
+	ctx                   context.Context
+	ApiService            *DatasetApiService
 	datasetQueryJsonQuery *DatasetQueryJsonQuery
 }
 
@@ -42,24 +41,25 @@ QueryDatabase Execute a query
 
 Execute a query and retrieve the results in the usual format.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiQueryDatabaseRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiQueryDatabaseRequest
 */
 func (a *DatasetApiService) QueryDatabase(ctx context.Context) ApiQueryDatabaseRequest {
 	return ApiQueryDatabaseRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return DatasetQueryResults
+//
+//	@return DatasetQueryResults
 func (a *DatasetApiService) QueryDatabaseExecute(r ApiQueryDatabaseRequest) (*DatasetQueryResults, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DatasetQueryResults
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DatasetQueryResults
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatasetApiService.QueryDatabase")

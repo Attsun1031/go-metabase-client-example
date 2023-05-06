@@ -19,24 +19,24 @@ var _ MappedNullable = &Database{}
 
 // Database struct for Database
 type Database struct {
-	Id int64 `json:"id"`
-	Name *string `json:"name,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Features []string `json:"features,omitempty"`
-	IsFullSync *bool `json:"is_full_sync,omitempty"`
-	IsSample *bool `json:"is_sample,omitempty"`
-	CacheFieldValuesSchedule *string `json:"cache_field_values_schedule,omitempty"`
-	MetadataSyncSchedule *string `json:"metadata_sync_schedule,omitempty"`
+	Id                       int64    `json:"id"`
+	Name                     *string  `json:"name,omitempty"`
+	Description              *string  `json:"description,omitempty"`
+	Features                 []string `json:"features,omitempty"`
+	IsFullSync               *bool    `json:"is_full_sync,omitempty"`
+	IsSample                 *bool    `json:"is_sample,omitempty"`
+	CacheFieldValuesSchedule *string  `json:"cache_field_values_schedule,omitempty"`
+	MetadataSyncSchedule     *string  `json:"metadata_sync_schedule,omitempty"`
 	// type unknown
-	Caveats *string `json:"caveats,omitempty"`
-	Engine *string `json:"engine,omitempty"`
-	CreatedAt *string `json:"created_at,omitempty"`
-	UpdatedAt *string `json:"updated_at,omitempty"`
+	Caveats           *string `json:"caveats,omitempty"`
+	Engine            *string `json:"engine,omitempty"`
+	CreatedAt         *string `json:"created_at,omitempty"`
+	UpdatedAt         *string `json:"updated_at,omitempty"`
 	NativePermissions *string `json:"native_permissions,omitempty"`
 	// type unknown
-	PointsOfInterest *string `json:"points_of_interest,omitempty"`
-	Details *DatabaseDetails `json:"details,omitempty"`
-	Tables []DatabaseTable `json:"tables,omitempty"`
+	PointsOfInterest *string          `json:"points_of_interest,omitempty"`
+	Details          *DatabaseDetails `json:"details,omitempty"`
+	Tables           []DatabaseTable  `json:"tables,omitempty"`
 }
 
 // NewDatabase instantiates a new Database object
@@ -562,7 +562,7 @@ func (o *Database) SetTables(v []DatabaseTable) {
 }
 
 func (o Database) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -655,5 +655,3 @@ func (v *NullableDatabase) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

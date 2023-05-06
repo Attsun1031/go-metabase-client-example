@@ -18,13 +18,12 @@ import (
 	"net/url"
 )
 
-
 // SessionApiService SessionApi service
 type SessionApiService service
 
 type ApiCreateSessionRequest struct {
-	ctx context.Context
-	ApiService *SessionApiService
+	ctx           context.Context
+	ApiService    *SessionApiService
 	sessionCreate *SessionCreate
 }
 
@@ -42,24 +41,25 @@ CreateSession Create a new session
 
 Create a new authorized session. The session token is returned in the X-Metabase-Session header.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateSessionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateSessionRequest
 */
 func (a *SessionApiService) CreateSession(ctx context.Context) ApiCreateSessionRequest {
 	return ApiCreateSessionRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Session
+//
+//	@return Session
 func (a *SessionApiService) CreateSessionExecute(r ApiCreateSessionRequest) (*Session, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Session
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Session
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SessionApiService.CreateSession")

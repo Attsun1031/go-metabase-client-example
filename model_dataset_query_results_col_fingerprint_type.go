@@ -19,9 +19,9 @@ var _ MappedNullable = &DatasetQueryResultsColFingerprintType{}
 
 // DatasetQueryResultsColFingerprintType struct for DatasetQueryResultsColFingerprintType
 type DatasetQueryResultsColFingerprintType struct {
-	PercentJson *float64 `json:"percent-json,omitempty"`
-	PercentUrl *float64 `json:"percent-url,omitempty"`
-	PercentEmail *float64 `json:"percent-email,omitempty"`
+	PercentJson   *float64 `json:"percent-json,omitempty"`
+	PercentUrl    *float64 `json:"percent-url,omitempty"`
+	PercentEmail  *float64 `json:"percent-email,omitempty"`
 	AverageLength *float64 `json:"average-length,omitempty"`
 }
 
@@ -171,7 +171,7 @@ func (o *DatasetQueryResultsColFingerprintType) SetAverageLength(v float64) {
 }
 
 func (o DatasetQueryResultsColFingerprintType) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,5 +230,3 @@ func (v *NullableDatasetQueryResultsColFingerprintType) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
