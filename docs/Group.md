@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **float32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
+**MemberCount** | Pointer to **float32** |  | [optional] 
 
 ## Methods
 
@@ -75,6 +76,31 @@ SetName sets Name field to given value.
 `func (o *Group) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetMemberCount
+
+`func (o *Group) GetMemberCount() float32`
+
+GetMemberCount returns the MemberCount field if non-nil, zero value otherwise.
+
+### GetMemberCountOk
+
+`func (o *Group) GetMemberCountOk() (*float32, bool)`
+
+GetMemberCountOk returns a tuple with the MemberCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMemberCount
+
+`func (o *Group) SetMemberCount(v float32)`
+
+SetMemberCount sets MemberCount field to given value.
+
+### HasMemberCount
+
+`func (o *Group) HasMemberCount() bool`
+
+HasMemberCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

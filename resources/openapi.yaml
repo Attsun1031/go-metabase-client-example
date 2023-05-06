@@ -29,7 +29,7 @@ paths:
       summary: Create a new session
       tags:
       - session
-  /api/group:
+  /api/permissions/group:
     get:
       description: Fetch all Groups.
       operationId: listGroups
@@ -187,6 +187,9 @@ components:
         name:
           type: string
           example: Admin
+        member_count:
+          type: number
+          example: 1
         
     DatabaseCreate:
       properties:

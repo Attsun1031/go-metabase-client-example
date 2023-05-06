@@ -19,8 +19,9 @@ var _ MappedNullable = &Group{}
 
 // Group struct for Group
 type Group struct {
-	Id   *float32 `json:"id,omitempty"`
-	Name *string  `json:"name,omitempty"`
+	Id          *float32 `json:"id,omitempty"`
+	Name        *string  `json:"name,omitempty"`
+	MemberCount *float32 `json:"member_count,omitempty"`
 }
 
 // NewGroup instantiates a new Group object
@@ -104,6 +105,38 @@ func (o *Group) SetName(v string) {
 	o.Name = &v
 }
 
+// GetMemberCount returns the MemberCount field value if set, zero value otherwise.
+func (o *Group) GetMemberCount() float32 {
+	if o == nil || IsNil(o.MemberCount) {
+		var ret float32
+		return ret
+	}
+	return *o.MemberCount
+}
+
+// GetMemberCountOk returns a tuple with the MemberCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Group) GetMemberCountOk() (*float32, bool) {
+	if o == nil || IsNil(o.MemberCount) {
+		return nil, false
+	}
+	return o.MemberCount, true
+}
+
+// HasMemberCount returns a boolean if a field has been set.
+func (o *Group) HasMemberCount() bool {
+	if o != nil && !IsNil(o.MemberCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetMemberCount gets a reference to the given float32 and assigns it to the MemberCount field.
+func (o *Group) SetMemberCount(v float32) {
+	o.MemberCount = &v
+}
+
 func (o Group) MarshalJSON() ([]byte, error) {
 	toSerialize, err := o.ToMap()
 	if err != nil {
@@ -119,6 +152,9 @@ func (o Group) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
+	}
+	if !IsNil(o.MemberCount) {
+		toSerialize["member_count"] = o.MemberCount
 	}
 	return toSerialize, nil
 }

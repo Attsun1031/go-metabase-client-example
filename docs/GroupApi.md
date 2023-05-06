@@ -4,8 +4,8 @@ All URIs are relative to *http://localhost:3000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateGroup**](GroupApi.md#CreateGroup) | **Post** /api/group | 
-[**ListGroups**](GroupApi.md#ListGroups) | **Get** /api/group | 
+[**CreateGroup**](GroupApi.md#CreateGroup) | **Post** /api/permissions/group | 
+[**ListGroups**](GroupApi.md#ListGroups) | **Get** /api/permissions/group | 
 
 
 

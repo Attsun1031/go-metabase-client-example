@@ -80,8 +80,8 @@ Class | Method | HTTP request | Description
 *DatabaseApi* | [**CreateDatabase**](docs/DatabaseApi.md#createdatabase) | **Post** /api/database | 
 *DatabaseApi* | [**ListDatabases**](docs/DatabaseApi.md#listdatabases) | **Get** /api/database | List Databases
 *DatasetApi* | [**QueryDatabase**](docs/DatasetApi.md#querydatabase) | **Post** /api/dataset | Execute a query
-*GroupApi* | [**CreateGroup**](docs/GroupApi.md#creategroup) | **Post** /api/group | 
-*GroupApi* | [**ListGroups**](docs/GroupApi.md#listgroups) | **Get** /api/group | 
+*GroupApi* | [**CreateGroup**](docs/GroupApi.md#creategroup) | **Post** /api/permissions/group | 
+*GroupApi* | [**ListGroups**](docs/GroupApi.md#listgroups) | **Get** /api/permissions/group | 
 *SessionApi* | [**CreateSession**](docs/SessionApi.md#createsession) | **Post** /api/session | Create a new session
 
 
