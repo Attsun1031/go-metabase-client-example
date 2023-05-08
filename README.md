@@ -81,6 +81,7 @@ Class | Method | HTTP request | Description
 *DatabaseApi* | [**ListDatabases**](docs/DatabaseApi.md#listdatabases) | **Get** /api/database | List Databases
 *DatasetApi* | [**QueryDatabase**](docs/DatasetApi.md#querydatabase) | **Post** /api/dataset | Execute a query
 *GroupApi* | [**CreateGroup**](docs/GroupApi.md#creategroup) | **Post** /api/permissions/group | 
+*GroupApi* | [**DeleteGroup**](docs/GroupApi.md#deletegroup) | **Delete** /api/permissions/group/{id} | 
 *GroupApi* | [**GetGroup**](docs/GroupApi.md#getgroup) | **Get** /api/permissions/group/{id} | 
 *GroupApi* | [**ListGroups**](docs/GroupApi.md#listgroups) | **Get** /api/permissions/group | 
 *GroupApi* | [**UpdateGroup**](docs/GroupApi.md#updategroup) | **Put** /api/permissions/group/{id} | 
