@@ -150,7 +150,7 @@ func (a *GroupApiService) CreateGroupExecute(r ApiCreateGroupRequest) (*Group, *
 type ApiGetGroupRequest struct {
 	ctx        context.Context
 	ApiService *GroupApiService
-	id         int32
+	id         int64
 }
 
 func (r ApiGetGroupRequest) Execute() (*GroupWithMembers, *http.Response, error) {
@@ -166,7 +166,7 @@ Fetch a Group by ID.
 	@param id value must be a valid integer string.
 	@return ApiGetGroupRequest
 */
-func (a *GroupApiService) GetGroup(ctx context.Context, id int32) ApiGetGroupRequest {
+func (a *GroupApiService) GetGroup(ctx context.Context, id int64) ApiGetGroupRequest {
 	return ApiGetGroupRequest{
 		ApiService: a,
 		ctx:        ctx,

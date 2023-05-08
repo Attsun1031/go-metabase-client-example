@@ -44,6 +44,7 @@ paths:
         required: true
         schema:
           type: integer
+          format: int64
       responses:
         "200":
           content:
