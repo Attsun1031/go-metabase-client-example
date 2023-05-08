@@ -37,6 +37,8 @@ docs/Group.md
 docs/GroupApi.md
 docs/GroupCreate.md
 docs/GroupMember.md
+docs/GroupUpdateRequest.md
+docs/GroupUpdateResponse.md
 docs/GroupWithMembers.md
 docs/ListDatabases200Response.md
 docs/Session.md
@@ -71,6 +73,8 @@ model_dataset_query_results_native_form.go
 model_group.go
 model_group_create.go
 model_group_member.go
+model_group_update_request.go
+model_group_update_response.go
 model_group_with_members.go
 model_list_databases_200_response.go
 model_session.go

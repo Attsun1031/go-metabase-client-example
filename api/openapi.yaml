@@ -55,6 +55,36 @@ paths:
       - ApiKeyAuth: []
       tags:
       - group
+    put:
+      description: Update a Group by ID.
+      operationId: updateGroup
+      parameters:
+      - description: value must be a valid integer string.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupUpdateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupUpdateResponse'
+          description: successful operation
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - group
   /api/permissions/group:
     get:
       description: Fetch all Groups.
@@ -198,6 +228,29 @@ components:
       example:
         name: Admin
       properties:
+        name:
+          example: Admin
+          type: string
+      required:
+      - name
+    GroupUpdateRequest:
+      example:
+        name: Admin
+      properties:
+        name:
+          example: Admin
+          type: string
+      required:
+      - name
+    GroupUpdateResponse:
+      example:
+        name: Admin
+        id: 1
+      properties:
+        id:
+          example: 1
+          format: int64
+          type: integer
         name:
           example: Admin
           type: string

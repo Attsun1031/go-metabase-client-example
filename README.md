@@ -83,6 +83,7 @@ Class | Method | HTTP request | Description
 *GroupApi* | [**CreateGroup**](docs/GroupApi.md#creategroup) | **Post** /api/permissions/group | 
 *GroupApi* | [**GetGroup**](docs/GroupApi.md#getgroup) | **Get** /api/permissions/group/{id} | 
 *GroupApi* | [**ListGroups**](docs/GroupApi.md#listgroups) | **Get** /api/permissions/group | 
+*GroupApi* | [**UpdateGroup**](docs/GroupApi.md#updategroup) | **Put** /api/permissions/group/{id} | 
 *SessionApi* | [**CreateSession**](docs/SessionApi.md#createsession) | **Post** /api/session | Create a new session
 
 
@@ -114,6 +115,8 @@ Class | Method | HTTP request | Description
  - [Group](docs/Group.md)
  - [GroupCreate](docs/GroupCreate.md)
  - [GroupMember](docs/GroupMember.md)
+ - [GroupUpdateRequest](docs/GroupUpdateRequest.md)
+ - [GroupUpdateResponse](docs/GroupUpdateResponse.md)
  - [GroupWithMembers](docs/GroupWithMembers.md)
  - [ListDatabases200Response](docs/ListDatabases200Response.md)
  - [Session](docs/Session.md)
