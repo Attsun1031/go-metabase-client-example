@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**CreateGroup**](GroupApi.md#CreateGroup) | **Post** /api/permissions/group | 
 [**GetGroup**](GroupApi.md#GetGroup) | **Get** /api/permissions/group/{id} | 
 [**ListGroups**](GroupApi.md#ListGroups) | **Get** /api/permissions/group | 
+[**UpdateGroup**](GroupApi.md#UpdateGroup) | **Put** /api/permissions/group/{id} | 
 
 
 
@@ -200,6 +201,78 @@ Other parameters are passed through a pointer to a apiListGroupsRequest struct v
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateGroup
+
+> GroupUpdateResponse UpdateGroup(ctx, id).GroupUpdateRequest(groupUpdateRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/Attsun1031/go-metabase-client-example"
+)
+
+func main() {
+    id := int64(789) // int64 | value must be a valid integer string.
+    groupUpdateRequest := *openapiclient.NewGroupUpdateRequest("Admin") // GroupUpdateRequest | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupApi.UpdateGroup(context.Background(), id).GroupUpdateRequest(groupUpdateRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.UpdateGroup``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateGroup`: GroupUpdateResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupApi.UpdateGroup`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int64** | value must be a valid integer string. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateGroupRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **groupUpdateRequest** | [**GroupUpdateRequest**](GroupUpdateRequest.md) |  | 
+
+### Return type
+
+[**GroupUpdateResponse**](GroupUpdateResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
