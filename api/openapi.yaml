@@ -34,17 +34,15 @@ paths:
     get:
       description: Fetch a Group by ID.
       operationId: getGroup
-      security:
-      - ApiKeyAuth: []
-      tags:
-      - group
       parameters:
-      - description: "value must be a valid integer string."
+      - description: value must be a valid integer string.
+        explode: false
         in: path
         name: id
         required: true
         schema:
           type: integer
+        style: simple
       responses:
         "200":
           content:
@@ -52,6 +50,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/GroupWithMembers'
           description: successful operation
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - group
   /api/permissions/group:
     get:
       description: Fetch all Groups.
@@ -216,6 +218,21 @@ components:
           example: 1
           type: number
     GroupWithMembers:
+      example:
+        members:
+        - user_id: 1
+          membership_id: 1
+          last_name: "1"
+          first_name: "1"
+          email: Admin
+        - user_id: 1
+          membership_id: 1
+          last_name: "1"
+          first_name: "1"
+          email: Admin
+        name: Admin
+        id: 1
+        member_count: 1
       properties:
         id:
           example: 1
@@ -231,6 +248,13 @@ components:
             $ref: '#/components/schemas/GroupMember'
           type: array
     GroupMember:
+      description: A user info in GroupWithMembers
+      example:
+        user_id: 1
+        membership_id: 1
+        last_name: "1"
+        first_name: "1"
+        email: Admin
       properties:
         membership_id:
           example: 1
@@ -242,10 +266,10 @@ components:
           example: Admin
           type: string
         first_name:
-          example: 1
+          example: "1"
           type: string
         last_name:
-          example: 1
+          example: "1"
           type: string
     DatabaseCreate:
       example:
