@@ -80,6 +80,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/GroupUpdateResponse'
           description: successful operation
+    delete:
+      description: Delete a Group by ID.
+      operationId: deleteGroup
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - group
+      parameters:
+      - description: "value must be a valid integer string."
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "204":
+          description: successful operation
   /api/permissions/group:
     get:
       description: Fetch all Groups.

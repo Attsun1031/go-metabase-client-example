@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost:3000*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateGroup**](GroupApi.md#CreateGroup) | **Post** /api/permissions/group | 
+[**DeleteGroup**](GroupApi.md#DeleteGroup) | **Delete** /api/permissions/group/{id} | 
 [**GetGroup**](GroupApi.md#GetGroup) | **Get** /api/permissions/group/{id} | 
 [**ListGroups**](GroupApi.md#ListGroups) | **Get** /api/permissions/group | 
 [**UpdateGroup**](GroupApi.md#UpdateGroup) | **Put** /api/permissions/group/{id} | 
@@ -71,6 +72,74 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteGroup
+
+> DeleteGroup(ctx, id).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/Attsun1031/go-metabase-client-example"
+)
+
+func main() {
+    id := int64(789) // int64 | value must be a valid integer string.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.GroupApi.DeleteGroup(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.DeleteGroup``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int64** | value must be a valid integer string. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteGroupRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
