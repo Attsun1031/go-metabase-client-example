@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MembershipId** | Pointer to **float32** |  | [optional] 
-**UserId** | Pointer to **float32** |  | [optional] 
+**MembershipId** | Pointer to **int64** |  | [optional] 
+**UserId** | Pointer to **int64** |  | [optional] 
 **Email** | Pointer to **string** |  | [optional] 
 **FirstName** | Pointer to **string** |  | [optional] 
 **LastName** | Pointer to **string** |  | [optional] 
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetMembershipId
 
-`func (o *GroupMember) GetMembershipId() float32`
+`func (o *GroupMember) GetMembershipId() int64`
 
 GetMembershipId returns the MembershipId field if non-nil, zero value otherwise.
 
 ### GetMembershipIdOk
 
-`func (o *GroupMember) GetMembershipIdOk() (*float32, bool)`
+`func (o *GroupMember) GetMembershipIdOk() (*int64, bool)`
 
 GetMembershipIdOk returns a tuple with the MembershipId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMembershipId
 
-`func (o *GroupMember) SetMembershipId(v float32)`
+`func (o *GroupMember) SetMembershipId(v int64)`
 
 SetMembershipId sets MembershipId field to given value.
 
@@ -56,20 +56,20 @@ HasMembershipId returns a boolean if a field has been set.
 
 ### GetUserId
 
-`func (o *GroupMember) GetUserId() float32`
+`func (o *GroupMember) GetUserId() int64`
 
 GetUserId returns the UserId field if non-nil, zero value otherwise.
 
 ### GetUserIdOk
 
-`func (o *GroupMember) GetUserIdOk() (*float32, bool)`
+`func (o *GroupMember) GetUserIdOk() (*int64, bool)`
 
 GetUserIdOk returns a tuple with the UserId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUserId
 
-`func (o *GroupMember) SetUserId(v float32)`
+`func (o *GroupMember) SetUserId(v int64)`
 
 SetUserId sets UserId field to given value.
 
