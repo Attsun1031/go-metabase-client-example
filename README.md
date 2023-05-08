@@ -81,6 +81,7 @@ Class | Method | HTTP request | Description
 *DatabaseApi* | [**ListDatabases**](docs/DatabaseApi.md#listdatabases) | **Get** /api/database | List Databases
 *DatasetApi* | [**QueryDatabase**](docs/DatasetApi.md#querydatabase) | **Post** /api/dataset | Execute a query
 *GroupApi* | [**CreateGroup**](docs/GroupApi.md#creategroup) | **Post** /api/permissions/group | 
+*GroupApi* | [**GetGroup**](docs/GroupApi.md#getgroup) | **Get** /api/permissions/group/{id} | 
 *GroupApi* | [**ListGroups**](docs/GroupApi.md#listgroups) | **Get** /api/permissions/group | 
 *SessionApi* | [**CreateSession**](docs/SessionApi.md#createsession) | **Post** /api/session | Create a new session
 
@@ -112,6 +113,8 @@ Class | Method | HTTP request | Description
  - [DatasetQueryResultsNativeForm](docs/DatasetQueryResultsNativeForm.md)
  - [Group](docs/Group.md)
  - [GroupCreate](docs/GroupCreate.md)
+ - [GroupMember](docs/GroupMember.md)
+ - [GroupWithMembers](docs/GroupWithMembers.md)
  - [ListDatabases200Response](docs/ListDatabases200Response.md)
  - [Session](docs/Session.md)
  - [SessionCreate](docs/SessionCreate.md)

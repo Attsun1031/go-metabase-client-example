@@ -30,6 +30,30 @@ paths:
       summary: Create a new session
       tags:
       - session
+  /api/permissions/group/{id}:
+    get:
+      description: Fetch a Group by ID.
+      operationId: getGroup
+      parameters:
+      - description: value must be a valid integer string.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupWithMembers'
+          description: successful operation
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - group
   /api/permissions/group:
     get:
       description: Fetch all Groups.
@@ -193,6 +217,60 @@ components:
         member_count:
           example: 1
           type: number
+    GroupWithMembers:
+      example:
+        members:
+        - user_id: 1
+          membership_id: 1
+          last_name: "1"
+          first_name: "1"
+          email: Admin
+        - user_id: 1
+          membership_id: 1
+          last_name: "1"
+          first_name: "1"
+          email: Admin
+        name: Admin
+        id: 1
+        member_count: 1
+      properties:
+        id:
+          example: 1
+          type: number
+        name:
+          example: Admin
+          type: string
+        member_count:
+          example: 1
+          type: number
+        members:
+          items:
+            $ref: '#/components/schemas/GroupMember'
+          type: array
+    GroupMember:
+      description: A user info in GroupWithMembers
+      example:
+        user_id: 1
+        membership_id: 1
+        last_name: "1"
+        first_name: "1"
+        email: Admin
+      properties:
+        membership_id:
+          example: 1
+          type: number
+        user_id:
+          example: 1
+          type: number
+        email:
+          example: Admin
+          type: string
+        first_name:
+          example: "1"
+          type: string
+        last_name:
+          example: "1"
+          type: string
     DatabaseCreate:
       example:
         auto_run_queries: true
