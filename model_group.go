@@ -19,9 +19,9 @@ var _ MappedNullable = &Group{}
 
 // Group struct for Group
 type Group struct {
-	Id          *float32 `json:"id,omitempty"`
-	Name        *string  `json:"name,omitempty"`
-	MemberCount *float32 `json:"member_count,omitempty"`
+	Id          *int64  `json:"id,omitempty"`
+	Name        *string `json:"name,omitempty"`
+	MemberCount *int64  `json:"member_count,omitempty"`
 }
 
 // NewGroup instantiates a new Group object
@@ -42,9 +42,9 @@ func NewGroupWithDefaults() *Group {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *Group) GetId() float32 {
+func (o *Group) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret float32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -52,7 +52,7 @@ func (o *Group) GetId() float32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Group) GetIdOk() (*float32, bool) {
+func (o *Group) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -68,8 +68,8 @@ func (o *Group) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given float32 and assigns it to the Id field.
-func (o *Group) SetId(v float32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *Group) SetId(v int64) {
 	o.Id = &v
 }
 
@@ -106,9 +106,9 @@ func (o *Group) SetName(v string) {
 }
 
 // GetMemberCount returns the MemberCount field value if set, zero value otherwise.
-func (o *Group) GetMemberCount() float32 {
+func (o *Group) GetMemberCount() int64 {
 	if o == nil || IsNil(o.MemberCount) {
-		var ret float32
+		var ret int64
 		return ret
 	}
 	return *o.MemberCount
@@ -116,7 +116,7 @@ func (o *Group) GetMemberCount() float32 {
 
 // GetMemberCountOk returns a tuple with the MemberCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Group) GetMemberCountOk() (*float32, bool) {
+func (o *Group) GetMemberCountOk() (*int64, bool) {
 	if o == nil || IsNil(o.MemberCount) {
 		return nil, false
 	}
@@ -132,8 +132,8 @@ func (o *Group) HasMemberCount() bool {
 	return false
 }
 
-// SetMemberCount gets a reference to the given float32 and assigns it to the MemberCount field.
-func (o *Group) SetMemberCount(v float32) {
+// SetMemberCount gets a reference to the given int64 and assigns it to the MemberCount field.
+func (o *Group) SetMemberCount(v int64) {
 	o.MemberCount = &v
 }
 

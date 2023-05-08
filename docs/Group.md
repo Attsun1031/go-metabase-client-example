@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **float32** |  | [optional] 
+**Id** | Pointer to **int64** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**MemberCount** | Pointer to **float32** |  | [optional] 
+**MemberCount** | Pointer to **int64** |  | [optional] 
 
 ## Methods
 
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *Group) GetId() float32`
+`func (o *Group) GetId() int64`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *Group) GetIdOk() (*float32, bool)`
+`func (o *Group) GetIdOk() (*int64, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *Group) SetId(v float32)`
+`func (o *Group) SetId(v int64)`
 
 SetId sets Id field to given value.
 
@@ -79,20 +79,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetMemberCount
 
-`func (o *Group) GetMemberCount() float32`
+`func (o *Group) GetMemberCount() int64`
 
 GetMemberCount returns the MemberCount field if non-nil, zero value otherwise.
 
 ### GetMemberCountOk
 
-`func (o *Group) GetMemberCountOk() (*float32, bool)`
+`func (o *Group) GetMemberCountOk() (*int64, bool)`
 
 GetMemberCountOk returns a tuple with the MemberCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMemberCount
 
-`func (o *Group) SetMemberCount(v float32)`
+`func (o *Group) SetMemberCount(v int64)`
 
 SetMemberCount sets MemberCount field to given value.
 

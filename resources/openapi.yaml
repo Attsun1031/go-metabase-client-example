@@ -203,26 +203,26 @@ components:
     Group:
       properties:
         id:
-          type: number
+          type: integer
+          format: int64
           example: 1
         name:
           type: string
           example: Admin
         member_count:
-          type: number
+          type: integer
+          format: int64
           example: 1
         
     GroupWithMembers:
       properties:
         id:
           example: 1
-          type: number
+          type: integer
+          format: int64
         name:
           example: Admin
           type: string
-        member_count:
-          example: 1
-          type: number
         members:
           items:
             $ref: '#/components/schemas/GroupMember'
@@ -232,10 +232,12 @@ components:
       properties:
         membership_id:
           example: 1
-          type: number
+          type: integer
+          format: int64
         user_id:
           example: 1
-          type: number
+          type: integer
+          format: int64
         email:
           example: Admin
           type: string

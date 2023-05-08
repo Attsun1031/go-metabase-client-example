@@ -19,10 +19,9 @@ var _ MappedNullable = &GroupWithMembers{}
 
 // GroupWithMembers struct for GroupWithMembers
 type GroupWithMembers struct {
-	Id          *float32      `json:"id,omitempty"`
-	Name        *string       `json:"name,omitempty"`
-	MemberCount *float32      `json:"member_count,omitempty"`
-	Members     []GroupMember `json:"members,omitempty"`
+	Id      *int64        `json:"id,omitempty"`
+	Name    *string       `json:"name,omitempty"`
+	Members []GroupMember `json:"members,omitempty"`
 }
 
 // NewGroupWithMembers instantiates a new GroupWithMembers object
@@ -43,9 +42,9 @@ func NewGroupWithMembersWithDefaults() *GroupWithMembers {
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GroupWithMembers) GetId() float32 {
+func (o *GroupWithMembers) GetId() int64 {
 	if o == nil || IsNil(o.Id) {
-		var ret float32
+		var ret int64
 		return ret
 	}
 	return *o.Id
@@ -53,7 +52,7 @@ func (o *GroupWithMembers) GetId() float32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GroupWithMembers) GetIdOk() (*float32, bool) {
+func (o *GroupWithMembers) GetIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -69,8 +68,8 @@ func (o *GroupWithMembers) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given float32 and assigns it to the Id field.
-func (o *GroupWithMembers) SetId(v float32) {
+// SetId gets a reference to the given int64 and assigns it to the Id field.
+func (o *GroupWithMembers) SetId(v int64) {
 	o.Id = &v
 }
 
@@ -104,38 +103,6 @@ func (o *GroupWithMembers) HasName() bool {
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *GroupWithMembers) SetName(v string) {
 	o.Name = &v
-}
-
-// GetMemberCount returns the MemberCount field value if set, zero value otherwise.
-func (o *GroupWithMembers) GetMemberCount() float32 {
-	if o == nil || IsNil(o.MemberCount) {
-		var ret float32
-		return ret
-	}
-	return *o.MemberCount
-}
-
-// GetMemberCountOk returns a tuple with the MemberCount field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GroupWithMembers) GetMemberCountOk() (*float32, bool) {
-	if o == nil || IsNil(o.MemberCount) {
-		return nil, false
-	}
-	return o.MemberCount, true
-}
-
-// HasMemberCount returns a boolean if a field has been set.
-func (o *GroupWithMembers) HasMemberCount() bool {
-	if o != nil && !IsNil(o.MemberCount) {
-		return true
-	}
-
-	return false
-}
-
-// SetMemberCount gets a reference to the given float32 and assigns it to the MemberCount field.
-func (o *GroupWithMembers) SetMemberCount(v float32) {
-	o.MemberCount = &v
 }
 
 // GetMembers returns the Members field value if set, zero value otherwise.
@@ -185,9 +152,6 @@ func (o GroupWithMembers) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
-	}
-	if !IsNil(o.MemberCount) {
-		toSerialize["member_count"] = o.MemberCount
 	}
 	if !IsNil(o.Members) {
 		toSerialize["members"] = o.Members

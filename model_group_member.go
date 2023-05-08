@@ -19,11 +19,11 @@ var _ MappedNullable = &GroupMember{}
 
 // GroupMember A user info in GroupWithMembers
 type GroupMember struct {
-	MembershipId *float32 `json:"membership_id,omitempty"`
-	UserId       *float32 `json:"user_id,omitempty"`
-	Email        *string  `json:"email,omitempty"`
-	FirstName    *string  `json:"first_name,omitempty"`
-	LastName     *string  `json:"last_name,omitempty"`
+	MembershipId *int64  `json:"membership_id,omitempty"`
+	UserId       *int64  `json:"user_id,omitempty"`
+	Email        *string `json:"email,omitempty"`
+	FirstName    *string `json:"first_name,omitempty"`
+	LastName     *string `json:"last_name,omitempty"`
 }
 
 // NewGroupMember instantiates a new GroupMember object
@@ -44,9 +44,9 @@ func NewGroupMemberWithDefaults() *GroupMember {
 }
 
 // GetMembershipId returns the MembershipId field value if set, zero value otherwise.
-func (o *GroupMember) GetMembershipId() float32 {
+func (o *GroupMember) GetMembershipId() int64 {
 	if o == nil || IsNil(o.MembershipId) {
-		var ret float32
+		var ret int64
 		return ret
 	}
 	return *o.MembershipId
@@ -54,7 +54,7 @@ func (o *GroupMember) GetMembershipId() float32 {
 
 // GetMembershipIdOk returns a tuple with the MembershipId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GroupMember) GetMembershipIdOk() (*float32, bool) {
+func (o *GroupMember) GetMembershipIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.MembershipId) {
 		return nil, false
 	}
@@ -70,15 +70,15 @@ func (o *GroupMember) HasMembershipId() bool {
 	return false
 }
 
-// SetMembershipId gets a reference to the given float32 and assigns it to the MembershipId field.
-func (o *GroupMember) SetMembershipId(v float32) {
+// SetMembershipId gets a reference to the given int64 and assigns it to the MembershipId field.
+func (o *GroupMember) SetMembershipId(v int64) {
 	o.MembershipId = &v
 }
 
 // GetUserId returns the UserId field value if set, zero value otherwise.
-func (o *GroupMember) GetUserId() float32 {
+func (o *GroupMember) GetUserId() int64 {
 	if o == nil || IsNil(o.UserId) {
-		var ret float32
+		var ret int64
 		return ret
 	}
 	return *o.UserId
@@ -86,7 +86,7 @@ func (o *GroupMember) GetUserId() float32 {
 
 // GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GroupMember) GetUserIdOk() (*float32, bool) {
+func (o *GroupMember) GetUserIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.UserId) {
 		return nil, false
 	}
@@ -102,8 +102,8 @@ func (o *GroupMember) HasUserId() bool {
 	return false
 }
 
-// SetUserId gets a reference to the given float32 and assigns it to the UserId field.
-func (o *GroupMember) SetUserId(v float32) {
+// SetUserId gets a reference to the given int64 and assigns it to the UserId field.
+func (o *GroupMember) SetUserId(v int64) {
 	o.UserId = &v
 }
 
